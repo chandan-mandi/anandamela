@@ -28,7 +28,7 @@ const UniqueProduct = () => {
                                 <ul>
                                     <li>All frames constructed with hardwood solids and laminates</li>
                                     <li>Reinforced with double wood dowels, glue, screw - nails corner blocks and machine nails</li>
-                                    <li>Arms, backs and seats are structurally reinforced</li>
+                                    <li>Arms, back and seats are structurally reinforced</li>
                                 </ul>
                                 <div className="btn-book" onClick={() => dispatch(addToCart())}>Add to Cart</div>
                             </div>
