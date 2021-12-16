@@ -1,0 +1,31 @@
+.unique-product {
+    background-color: #F2F0FF;
+}
+.unique-product .section-title h2{
+    text-align: left;
+}
+.unique-product li {
+    list-style-type: none;
+}
+.unique-product ul li{
+    position: relative;
+    color: #ACABC3;
+}
+.unique-product ul li::after {
+    position: absolute;
+    content: "";
+    top: 9px;
+    left: -15px;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #FB2E86;
+    border-radius: 10px;
+}
+.unique-product ul li:nth-child(2):after {
+    background-color: #2B2BF5;
+}
+.unique-product ul li:nth-child(3):after {
+    background-color: #2BF5CC;
+}
+

@@ -1,0 +1,30 @@
+[
+     {
+        "id": "1",
+        "name": "Cantilier chair",
+        "category": "featured",
+        "img": "https://i.ibb.co/SXpBqcz/image-1169.png",
+        "price": "42"
+    },
+     {
+        "id": "3",
+        "name": "Cantilier chair",
+        "category": "featured",
+        "img": "https://i.ibb.co/QdJPDw3/image-1167.png",
+        "price": "42"
+    },
+     {
+        "id": "4",
+        "name": "Cantilier chair",
+        "category": "featured",
+        "img": "https://i.ibb.co/yYmn8TB/image-1168.png",
+        "price": "42"
+    },
+     {
+        "id": "5",
+        "name": "Cantilier chair",
+        "category": "featured",
+        "img": "https://i.ibb.co/6HGW2h0/image-1171.png",
+        "price": "42"
+    }
+]

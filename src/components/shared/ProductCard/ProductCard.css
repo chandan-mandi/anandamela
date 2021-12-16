@@ -1,0 +1,10 @@
+.card-image {
+    background-color: #F6F7FB;
+}
+.card-title {
+    color: #FB2E86;
+}
+.card-body p.card-text {
+    margin-bottom: 5px !important;
+    padding: 0 !important;
+}
