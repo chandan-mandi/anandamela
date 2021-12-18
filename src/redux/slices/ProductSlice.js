@@ -2,14 +2,13 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import swal from 'sweetalert';
-import useAuth from '../../components/hooks/useAuth';
 // import axios from 'axios';
 
 // First, create the thunk
 export const fetchProducts = createAsyncThunk(
   'product/fetchProducts',
   async () => {
-    const response = await fetch("http://localhost:5000/products")
+    const response = await fetch("https://anandamela-server.herokuapp.com/products")
       .then(res => res.json())
     return response;
   }

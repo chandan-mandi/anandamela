@@ -6,7 +6,7 @@ import "./TopBanner.css";
 
 const TopBanner = () => {
     return (
-        <div className="top-banner">
+        <div className="top-banner py-5">
             <Container>
                 <Row className="align-items-center justify-content-center">
                     <Col lg={6} md={8} sm={12}>

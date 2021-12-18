@@ -1,5 +1,5 @@
 .top-banner {
-    height: 90vh;
+    height: 100%;
 }
 .party-text {
     padding: 25px 0;
@@ -8,9 +8,6 @@
     /* color: #023B59; */
     color: #FB2E86;
     font-size: 20px;
-}
-.top-banner .row {
-    height: 85vh;
 }
 .party-text h2 {
     font-size: 38px;
@@ -24,10 +21,12 @@
 }
 .party-img {
     width: 100%;
+    overflow: hidden;
 }
 .party-img img {
     height: 500px;
     width: 100%;
+    object-fit: contain;
 }
 a {
     text-decoration: none;
@@ -41,8 +40,8 @@ a:hover {
 .btn-book {
     position: relative;
     display: inline-block;
-    padding: 12px 36px;
-    margin: 10px 0;
+    padding: 7px 24px;
+    margin: 0 16px;
     color: #fff !important;
     text-decoration: none !important;
     text-transform: uppercase;
@@ -66,4 +65,9 @@ a:hover {
 .top-banner {
     background-color: #F2F0FF;
     position: relative;
+}
+@media only screen and (max-width: 450px){
+    .top-banner .container::before {
+        right: -293px;
+    }    
 }

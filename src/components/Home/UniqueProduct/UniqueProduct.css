@@ -29,3 +29,10 @@
     background-color: #2BF5CC;
 }
 
+.unique-product-img {
+    overflow: hidden;
+    width: 100%;
+}
+.unique-product-img img {
+    width: 100%;
+}

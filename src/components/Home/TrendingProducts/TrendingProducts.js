@@ -51,46 +51,46 @@ const TrendingProducts = () => {
                         </Row>
                     </Col>
                     <Col md={3} sm={12}>
-                        <Row className="executive-part pb-2">
-                            <Col md={3} sm={6}>
+                        <Row className="executive-part py-2">
+                            <Col md={3} sm={3} xs={3}>
                                 <div className="executive-img">
                                     <img src="https://i.ibb.co/Qd03w2B/image-30.png" alt="" />
                                 </div>
                             </Col>
-                            <Col md={9} sm={6}>
+                            <Col md={9} sm={9} xs={9}>
                             <h6>Executive Seat chair</h6>
                             <h6>Price: $26.00</h6>
                             </Col>
                         </Row>
-                        <Row className="executive-part pb-2">
-                            <Col md={3} sm={6}>
+                        <Row className="executive-part py-2">
+                            <Col md={3} sm={3} xs={3}>
                                 <div className="executive-img">
                                     <img src="https://i.ibb.co/ctNnYZW/image-19.png" alt="" />
                                 </div>
                             </Col>
-                            <Col md={9} sm={6}>
+                            <Col md={9} sm={9} xs={9}>
                             <h6>Executive Seat chair</h6>
                             <h6>Price: $26.00</h6>
                             </Col>
                         </Row>
-                        <Row className="executive-part pb-2">
-                            <Col md={3} sm={6}>
+                        <Row className="executive-part py-2">
+                            <Col md={3} sm={3} xs={3}>
                                 <div className="executive-img">
                                     <img src="https://i.ibb.co/GpVSNTs/image-28.png" alt="" />
                                 </div>
                             </Col>
-                            <Col md={9} sm={6}>
+                            <Col md={9} sm={9} xs={9}>
                             <h6>Executive Seat chair</h6>
                             <h6>Price: $26.00</h6>
                             </Col>
                         </Row>
-                        <Row className="executive-part pb-2">
-                            <Col md={3} sm={6}>
+                        <Row className="executive-part py-2">
+                            <Col md={3} sm={3} xs={3}>
                                 <div className="executive-img">
                                     <img src="https://i.ibb.co/ctNnYZW/image-19.png" alt="" />
                                 </div>
                             </Col>
-                            <Col md={9} sm={6}>
+                            <Col md={9} sm={9} xs={9}>
                             <h6>Executive Seat chair</h6>
                             <h6>Price: $26.00</h6>
                             </Col>
