@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
     }
     return (
         <>
-            <Col lg={3} md={3} sm={6} className='py-2'>
+            <Col lg={3} md={4} sm={6} className='py-2'>
                 <Card style={{ textAlign: "center" }}>
                     <div className="card-image">
                         <Card.Img variant="top" src={product.img} />

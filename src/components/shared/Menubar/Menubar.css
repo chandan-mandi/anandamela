@@ -8,11 +8,14 @@ span.cart-badge {
     top: 8px;
     padding: 3px 4px;
 }
-svg.svg-inline--fa.fa-cart-arrow-down.fa-w-18 {
+.navbar svg.svg-inline--fa.fa-cart-arrow-down.fa-w-18 {
     color: #2bf5cc;
     font-size: 23px;
     margin-right: 2px;
 }
 .navbar-light .navbar-nav .nav-link:nth-child(5) {
     margin-right: 24px;
+}
+.cart-icon {
+    position: relative;
 }

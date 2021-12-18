@@ -57,7 +57,7 @@ const MenuBar = () => {
                         {/* <Nav.Link as={Link} to="/shop">Shop</Nav.Link> */}
                         <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
                         {user.email && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>}
-                        <Nav.Link as={Link} to="/cart"> <FontAwesomeIcon icon={faCartArrowDown}></FontAwesomeIcon> <Badge className='cart-badge'>{products.length || 0}</Badge></Nav.Link>
+                        <Nav.Link as={Link} to="/cart" className='cart-icon'> <FontAwesomeIcon icon={faCartArrowDown}></FontAwesomeIcon> <Badge className='cart-badge'>{products.length || 0}</Badge></Nav.Link>
                         {!user?.email ?
                             <Link to="/login" className="btn-book">Login</Link>
                             :
