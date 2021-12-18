@@ -1,3 +1,5 @@
+import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Button, Badge } from 'react-bootstrap';
 import toast, { Toaster } from 'react-hot-toast';
@@ -50,13 +52,12 @@ const MenuBar = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/pages">Pages</Nav.Link>
                         <Nav.Link as={Link} to="/products">Products</Nav.Link>
-                        <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
-                        <Nav.Link as={Link} to="/shop">Shop</Nav.Link>
+                        {/* <Nav.Link as={Link} to="/blog">Blog</Nav.Link> */}
+                        {/* <Nav.Link as={Link} to="/shop">Shop</Nav.Link> */}
                         <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
                         {user.email && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>}
-                        <Nav.Link as={Link} to="/cart">Cart <Badge className='cart-badge'>{products.length || 0}</Badge></Nav.Link>
+                        <Nav.Link as={Link} to="/cart"> <FontAwesomeIcon icon={faCartArrowDown}></FontAwesomeIcon> <Badge className='cart-badge'>{products.length || 0}</Badge></Nav.Link>
                         {!user?.email ?
                             <Link to="/login" className="btn-book">Login</Link>
                             :

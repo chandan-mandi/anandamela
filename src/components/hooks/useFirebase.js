@@ -22,7 +22,7 @@ const useFirebase = () => {
                 setAuthError('')
                 // const newUser = {email, displayName : name}
                 const user = userCredential.user;
-                setUser(user)
+                console.log(user)
             })
             .catch((error) => {
                 setAuthError(error.message)
@@ -52,8 +52,8 @@ const useFirebase = () => {
                 const user = result.user;
                 console.log(user)
                 saveUser(user.email, user?.displayName, 'PUT')
-                const destination = location?.state?.from || '/dashboard'
-                history.replace(destination)
+                // const destination = '/';
+                history("/")
                 setAuthError('');
 
             })
@@ -81,7 +81,7 @@ const useFirebase = () => {
 
     // admin checking
     useEffect(() => {
-        fetch(`https://safe-crag-22535.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
         .then(res => res.json())
         .then(data => setAdmin(data.admin))
     },[user.email])
@@ -98,7 +98,7 @@ const useFirebase = () => {
     // SAVE USER TO THE DATABASE
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://safe-crag-22535.herokuapp.com/users', {
+        fetch('http://localhost:5000/user', {
             method: method,
             headers: {
                 'content-type': 'application/json'

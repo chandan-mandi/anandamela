@@ -1,17 +1,23 @@
 import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../../../redux/slices/ProductSlice';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { addToCart, removeFromCart, addToOrderList } from '../../../redux/slices/ProductSlice';
 import "./ProductCard.css";
 
 const ProductCard = ({ product }) => {
     const dispatch = useDispatch();
     const location = useLocation();
-    console.log(location)
+    const navigate = useNavigate();
+
+    const orderAdd = (id) => {
+        
+        dispatch( addToOrderList(id));
+        navigate(`/order/${id}`)
+    }
     return (
         <>
-            <Col lg={3} md={3} sm={6}>
+            <Col lg={3} md={3} sm={6} className='py-2'>
                 <Card style={{ textAlign: "center" }}>
                     <div className="card-image">
                         <Card.Img variant="top" src={product.img} />
@@ -26,7 +32,10 @@ const ProductCard = ({ product }) => {
                         </Card.Text>
                         {
                             location.pathname === "/cart" ?
-                            <Button onClick={() => dispatch( removeFromCart(product.id))} variant="danger">Cancel Order</Button>
+                            <>
+                            <Button onClick={() => orderAdd(product._id)} variant="success" className='mb-2'>Proceed To Checkout</Button>
+                            <Button onClick={() => dispatch( removeFromCart(product._id))} variant="danger">Cancel Order</Button>
+                            </>
                             :
                             <Button onClick={() => dispatch( addToCart(product))} variant="warning">Add to Cart</Button>
                         }
