@@ -28,9 +28,11 @@ const ConfirmOrder = () => {
 
     const onSubmit = data => {
         data.productId = id;
-        const newData = {pdDetails:checkoutList,address:data};
-        console.log(newData)
-        dispatch(postOrder(newData))
+        data.status = "pending";
+        data.pdDetails = checkoutList;
+        // const newData = {pdDetails:checkoutList,address:data};
+        console.log(data)
+        dispatch(postOrder(data))
         for(let id in ids){
             dispatch(removeFromCart(ids[id]));
             dispatch(removeFromCheckout());
@@ -49,12 +51,11 @@ const ConfirmOrder = () => {
                     <div className="form-main" style={{ borderRadius: "15px", maxWidth: '85rem' }}>
                         <Row>
                             <Col md={6} xs={12} className="pr-md-4">
-                                <input className="our-form-input" type="text" {...register("CarName", { required: true })} defaultValue="name" />
-                                <label>Name</label>
+                                <label>Enter Your Name</label>
                                 <input
                                     className="our-form-input"
                                     type="text"
-                                    defaultValue="Andi"
+                                    defaultValue="Admin"
                                     {...register("name", { required: true })}
                                     placeholder="Your Name"
                                 />
@@ -76,16 +77,7 @@ const ConfirmOrder = () => {
                                     {...register("phone", { required: true })}
                                     placeholder="Phone Number"
                                 />
-                                <label>Test Drive Date</label>
-                                <input
-                                    type="date"
-                                    date="{{date}}" timezone="[[timezone]]"
-                                    className="our-form-input"
-                                    defaultValue=""
-                                    {...register("testDriveDate")}
-                                    placeholder="Test Drive Date"
-                                />
-                                <textarea
+                                <textarea 
                                     type="textarea"
                                     className="our-form-input"
                                     defaultValue="jamalpur"

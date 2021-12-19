@@ -83,7 +83,7 @@ const DashboardPage = () => {
                                     <span className="icon">
                                         <FontAwesomeIcon className="faIcon" icon={faCartPlus}></FontAwesomeIcon>
                                     </span>
-                                    <span className="title">Manage All Booking</span>
+                                    <span className="title">Manage All Order</span>
                                 </Link>
                             </li>
                             <li>
@@ -91,7 +91,7 @@ const DashboardPage = () => {
                                     <span className="icon">
                                         <FontAwesomeIcon className="faIcon" icon={faServicestack}></FontAwesomeIcon>
                                     </span>
-                                    <span className="title">Manage All Service</span>
+                                    <span className="title">Manage All Product</span>
                                 </Link>
                             </li>
                         </>}

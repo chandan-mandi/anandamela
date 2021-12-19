@@ -87,10 +87,11 @@ const useFirebase = () => {
     },[user.email])
 
     // logout
-    function Logout() {
+    function Logout(navigate) {
         signOut(auth).then(() => {
             // Sign-out successful.
             setUser({});
+            navigate("/")
         }).catch((error) => {
             // An error happened.
         });

@@ -1,14 +1,17 @@
 import React from 'react';
 import { Image, Nav, OverlayTrigger, Popover, Button } from 'react-bootstrap';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
 const ProfilePopper = () => {
     const { user, Logout } = useAuth();
+    const navigate = useNavigate();
     const { email, displayName: name, photoURL: img } = user;
     const signOut = () => {
-        Logout();
+        Logout(navigate);
         toast.error('Logged Out')
+
     }
     return (
         <OverlayTrigger

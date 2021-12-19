@@ -5,19 +5,26 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchAllOrders } from '../../../redux/slices/ProductSlice';
-
+import { deleteOrder, fetchAllOrders, removeFromOrder } from '../../../redux/slices/ProductSlice';
 const ManageAllBooking = () => {
     const [booking, setBooking] = useState([]);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
+    const orders = useSelector((state) => state.products.allOrders)
+    console.log(orders);
     useEffect(() => {
         dispatch(fetchAllOrders())
         setLoading(false)
     }, [dispatch])
-    const orders = useSelector((state) => state.products.allOrders)
     // ORDER DETELE HANDLER
     const handleDelete = (id) => {
+        const proceed = window.confirm('Are You sure to Cancel the Booking?')
+        if (proceed) {
+            dispatch(deleteOrder(id))
+        }
+        dispatch(removeFromOrder(id))
+    };
+    /* const handleDelete = (id) => {
         const proceed = window.confirm('Are You sure to Cancel the Booking?')
         if (proceed) {
             const url = `https://safe-crag-22535.herokuapp.com/deletedBooking/${id}`
@@ -33,7 +40,7 @@ const ManageAllBooking = () => {
                     }
                 })
         }
-    }
+    } */
     // HANDLE STATUS CHANGE
     const handleStatusChange = (id, status) => {
         let modifiedBooking = [];
@@ -55,7 +62,7 @@ const ManageAllBooking = () => {
         <div className="px-3 manage-booking">
             <div className="cardHeader">
                 <h2>Recent Orders</h2>
-                <h2>Total Booking {booking.length}</h2>
+                <h2>Total Booking {orders.length}</h2>
                 <Link to="" className="view-all-btn">View All</Link>
             </div>
             <table>
@@ -74,8 +81,8 @@ const ManageAllBooking = () => {
                     <tbody>
                         <tr>
                             <td>{index + 1}</td>
-                            <td>{order.name}</td>
-                            <td>{order.phone}</td>
+                            <td>{order.name || order?.address?.name}</td>
+                            <td>{order.phone || order?.address?.phone}</td>
                             <td>{order.fullAddress}</td>
                             <td>
                                 <select

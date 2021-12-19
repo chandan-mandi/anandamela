@@ -12,6 +12,7 @@ const MakeAdmin = () => {
     const onSubmit = data => { 
         // console.log(data);
         dispatch(putAdmin(data));
+        reset();
     }
     return (
         <div>

@@ -27,7 +27,7 @@ export const postOrder = createAsyncThunk(
     const response = await axios.post("http://localhost:5000/order", data)
       .then(res => {
         if (res.data.insertedId) {
-          toast.success('Booking Succesful')
+          toast.success('Order Succesful')
         }
       })
     return response;
@@ -95,6 +95,7 @@ export const fetchOrder = createAsyncThunk(
   async (email) => {
     const response = await fetch(`http://localhost:5000/order/${email}`)
       .then(res => res.json())
+      console.log(response)
     return response;
   }
 )

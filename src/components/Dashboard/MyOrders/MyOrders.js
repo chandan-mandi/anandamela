@@ -9,16 +9,16 @@ import useAuth from '../../hooks/useAuth';
 
 const MyOrders = () => {
     const { user } = useAuth();
-    // const [myBookings, setMyBookings] = useState([]);
+    // const [myOrders, setmyOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
+    const myOrders = useSelector((state) => state.products.myOrder)
 
     useEffect(() => {
         dispatch(fetchOrder(user.email))
         setLoading(false)
     }, [dispatch, user.email])
-    const myBookings = useSelector((state) => state.products.myOrder)
-
+    // console.log(myOrders);
     const handleDelete = (id) => {
         const proceed = window.confirm('Are You sure to Cancel the Booking?')
         if (proceed) {
@@ -38,17 +38,20 @@ const MyOrders = () => {
                         <td>Name</td>
                         <td>Phone</td>
                         <td>Address</td>
-                        <td>Type</td>
+                        <td>Email</td>
                         <td>Status</td>
                         <td>Cancel Order</td>
                     </tr>
                 </thead>
                 {loading ? <Spinner animation="border" variant="danger" /> :
-                    myBookings.map(order => (
+                    myOrders.map(order => (
                         <tbody>
                             <tr>
-                                <td>{order?.name}</td>
-                                <td>{order?.phone}</td>
+                                <td>{order?.name || order?.address?.name}</td>
+                                <td>{order.phone || order?.address?.phone}</td>
+                                <td>{order.address || order?.address?.phone}</td>
+                                <td>{order.email || order?.pdDetails[0].phone}</td>
+                                <td>{order.status || order?.address?.phone}</td>
                                  {/* <td><span className={order.status === "pending" ? "status pending" : order.status === "Pending" ? "status pending" : order.status === "On going" ? "status inprogress" : order.status === "Done" ? "status delivered" : null}>{order.status}</span></td> */}
                                 <Button onClick={() => handleDelete(order._id)} variant="danger bg-danger m-1">Order Cancel</Button>
                             </tr>
