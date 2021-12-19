@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { fetchProducts } from '../../../redux/slices/ProductSlice';
+import { addToCart, fetchProducts } from '../../../redux/slices/ProductSlice';
 import ProductCard from '../../shared/ProductCard/ProductCard';
 
 const FeaturedProducts = () => {
@@ -11,7 +11,10 @@ const FeaturedProducts = () => {
         dispatch(fetchProducts())
     },[])
     const {products, loading} = useSelector((state) => state.products);
-    
+    const addToShopCart = (product) => {
+        dispatch(addToCart(product));
+
+    }
     return (
         <div className='featured-products' style={{backgroundColor: '#E5E5E5'}}>
             <Container className="py-5">
@@ -23,6 +26,7 @@ const FeaturedProducts = () => {
                         products.map(product => <ProductCard
                             key={product._id}
                             product={product}
+                            addToShopCart={addToShopCart}
                         ></ProductCard>)
                     }
                 </Row>

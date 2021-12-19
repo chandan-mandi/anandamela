@@ -1,11 +1,18 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addToCart } from '../../../redux/slices/ProductSlice';
 import ProductCard from '../../shared/ProductCard/ProductCard';
 
 const TrendingProducts = () => {
+    const dispatch = useDispatch();
     const products = useSelector((state) => state.products.products);
+    const addToShopCart = (product) => {
+        dispatch(addToCart(product));
+
+    }
     return (
         <div className='trending-products' style={{ backgroundColor: '#E5E5E5' }}>
             <Container className="py-5">
@@ -17,6 +24,7 @@ const TrendingProducts = () => {
                         products.map(product => <ProductCard
                             key={product._id}
                             product={product}
+                            addToShopCart={addToShopCart}
                         ></ProductCard>)
                     }
                 </Row>

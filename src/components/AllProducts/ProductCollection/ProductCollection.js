@@ -14,23 +14,6 @@ const ProductCollection = () => {
     const { products, loading, cartList } = useSelector((state) => state.products)
 
     const addToShopCart = (product) => {
-        // dispatch(addToCart(product));
-        // const exists = cartList.find(pd => pd._id === product._id);
-        // console.log(exists)
-        // let newCart = [];
-        // if (exists) {
-        //     const rest = cartList.filter(pd => pd._id !== product._id);
-        //     exists.quantity = exists.quantity + 1;
-        //     newCart = [...rest, product];
-        // }
-        // else {
-        //     // console.log(product)
-        //     // product.quantity = "1";
-        //     // Object.preventExtensions(product)
-        //     newCart = [...cartList, product];
-        // }
-        // // setCart(newCart);
-        // console.log(newCart)
         dispatch(addToCart(product));
 
     }
