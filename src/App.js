@@ -37,6 +37,7 @@ function App() {
             </Route>
             <Route path="cart" element={<Cart />}></Route>
             <Route path="order/:id" element={<ConfirmOrder />}></Route>
+            <Route path="checkout" element={<ConfirmOrder />}></Route>
           </Routes>
         </BrowserRouter>
       </AuthProvider>

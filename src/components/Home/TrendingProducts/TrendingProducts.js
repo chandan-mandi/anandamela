@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ProductCard from '../../shared/ProductCard/ProductCard';
 
 const TrendingProducts = () => {
@@ -14,7 +15,7 @@ const TrendingProducts = () => {
                 <Row>
                     {
                         products.map(product => <ProductCard
-                            key={product.id}
+                            key={product._id}
                             product={product}
                         ></ProductCard>)
                     }
@@ -27,7 +28,7 @@ const TrendingProducts = () => {
                                     <div className="discount-title">
                                         <Card.Body>
                                             <h2>23% off in all products</h2>
-                                            <p>Shop Now</p>
+                                            <Link to="/products"><p>Shop Now</p></Link>
                                         </Card.Body>
                                         <div className="discounted-img">
                                             <Card.Img variant="top" src="https://i.ibb.co/59GHHP7/image-1162.png" />
@@ -40,7 +41,7 @@ const TrendingProducts = () => {
                                     <div className="discount-title">
                                         <Card.Body>
                                             <h2>23% off in all products</h2>
-                                            <p>View Collection</p>
+                                            <Link to="/products"><p>View Collection</p></Link>
                                         </Card.Body>
                                         <div className="discounted-img">
                                             <Card.Img variant="top" src="https://i.ibb.co/XzpbLD9/image-1161.png" />

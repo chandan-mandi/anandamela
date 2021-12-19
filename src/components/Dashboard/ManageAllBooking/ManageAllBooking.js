@@ -74,7 +74,7 @@ const ManageAllBooking = () => {
                     <tbody>
                         <tr>
                             <td>{index + 1}</td>
-                            <td>{order.name.toUpperCase()}</td>
+                            <td>{order.name}</td>
                             <td>{order.phone}</td>
                             <td>{order.fullAddress}</td>
                             <td>

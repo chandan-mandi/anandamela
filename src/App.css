@@ -110,3 +110,6 @@
 .d-flex.w-50.col label {
   margin-right: 5px;
 }
+.loading-spinner {
+  margin: auto;
+}

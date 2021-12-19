@@ -15,7 +15,7 @@ const TopBanner = () => {
                                 <h6>Best Furniture For Your Castle...</h6>
                                 <h2>New Furniture Collection <br /> Trends in 2021</h2>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem repudiandae fuga eveniet adipisci iusto ut dolores aspernatur aliquid animi earum?</p>
-                                <div className="btn-book"> <Link to="/services">Shop Now</Link></div>
+                                <div className="btn-book"> <Link to="/products">Shop Now</Link></div>
                             </div>
                         </Fade>
                     </Col>

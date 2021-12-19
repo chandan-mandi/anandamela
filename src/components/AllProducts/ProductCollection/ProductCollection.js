@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Col, Form, Row } from 'react-bootstrap';
+import { Col, Form, Row, Spinner } from 'react-bootstrap';
 import Rating from 'react-rating';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { fetchProducts } from '../../../redux/slices/ProductSlice';
+import { addToCart, fetchProducts } from '../../../redux/slices/ProductSlice';
 import ProductCard from '../../shared/ProductCard/ProductCard';
 
 const ProductCollection = () => {
@@ -11,7 +11,29 @@ const ProductCollection = () => {
     useEffect(() => {
         dispatch(fetchProducts());
     }, []);
-    const products = useSelector((state) => state.products.products)
+    const { products, loading, cartList } = useSelector((state) => state.products)
+
+    const addToShopCart = (product) => {
+        // dispatch(addToCart(product));
+        // const exists = cartList.find(pd => pd._id === product._id);
+        // console.log(exists)
+        // let newCart = [];
+        // if (exists) {
+        //     const rest = cartList.filter(pd => pd._id !== product._id);
+        //     exists.quantity = exists.quantity + 1;
+        //     newCart = [...rest, product];
+        // }
+        // else {
+        //     // console.log(product)
+        //     // product.quantity = "1";
+        //     // Object.preventExtensions(product)
+        //     newCart = [...cartList, product];
+        // }
+        // // setCart(newCart);
+        // console.log(newCart)
+        dispatch(addToCart(product));
+
+    }
     return (
         <div>
             <Row>
@@ -139,10 +161,11 @@ const ProductCollection = () => {
                 </Col>
                 <Col md={9} sm={12}>
                     <Row>
-                        {
+                        {loading ? <Spinner className='loading-spinner' animation="border" variant="info" /> :
                             products.map(product => <ProductCard
                                 key={product._id}
                                 product={product}
+                                addToShopCart={addToShopCart}
                             ></ProductCard>)
                         }
                     </Row>

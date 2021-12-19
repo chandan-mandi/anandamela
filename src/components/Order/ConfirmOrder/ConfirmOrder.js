@@ -2,9 +2,10 @@ import React from 'react';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import {toast, Toaster } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addToOrderList, postOrder, removeFromCart } from '../../../redux/slices/ProductSlice';
+import { addToOrderList, postOrder, removeFromCart, removeFromCheckout } from '../../../redux/slices/ProductSlice';
 import useAuth from '../../hooks/useAuth';
 import MenuBar from '../../shared/Menubar/Menubar';
 import "./ConfirmOrder.css";
@@ -15,14 +16,28 @@ const ConfirmOrder = () => {
     const {user} = useAuth();
     const dispatch = useDispatch();
     const {register, handleSubmit, reset} = useForm();
-
+    const {checkoutList} = useSelector((state) => state.products)
+    console.log(checkoutList);
+    const ids = [];
+    checkoutList.map(pd => {
+        const arrId = pd.productId.map(pdId => pdId)
+        for(let id in arrId){
+            ids.push(arrId[id]);
+        }
+    });
 
     const onSubmit = data => {
         data.productId = id;
-        dispatch(postOrder(data))
-        dispatch(removeFromCart(id));
+        const newData = {pdDetails:checkoutList,address:data};
+        console.log(newData)
+        dispatch(postOrder(newData))
+        for(let id in ids){
+            dispatch(removeFromCart(ids[id]));
+            dispatch(removeFromCheckout());
+        }
+        // dispatch(removeFromCart(id));
         reset();
-        navigate('/cart')
+        navigate('/')
     }
     return (
         <div className="car-booking">

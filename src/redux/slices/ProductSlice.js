@@ -9,7 +9,7 @@ export const fetchProducts = createAsyncThunk(
   'product/fetchProducts',
   async () => {
     const response = await fetch("https://anandamela-server.herokuapp.com/products")
-      .then(res => res.json())
+      .then((res) => res.json())
     return response;
   }
 )
@@ -104,15 +104,25 @@ const productSlice = createSlice({
   initialState: {
     products: [],
     cartList: [],
+    checkoutList: [],
     completeOrder: [],
     myOrder: [],
     user: [],
-    allOrders: []
+    allOrders: [],
+    loading: true
   },
   reducers: {
     addToCart: (state, action) => {
       state.cartList.push(action.payload)
+    },
+    addToCheckoutList: (state, action) => {
+      state.checkoutList.push(action.payload)
       console.log(action)
+    },
+    removeFromCheckout: (state, action) => {
+      // state.checkoutList = state.checkoutList.filter(product => product._id !== action.payload)
+      // state.checkoutList.push(action.payload)
+      state.checkoutList = []
     },
     removeFromCart: (state, action) => {
       state.cartList = state.cartList.filter(product => product._id !== action.payload)
@@ -130,6 +140,11 @@ const productSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
+    builder.addCase(fetchProducts.pending, (state, action) => {
+      if(fetchProducts.pending){
+        state.loading = false
+      }
+    });
     builder.addCase(fetchProducts.fulfilled, (state, action) => {
       // Add user to the state array
       state.products = action.payload;
@@ -140,7 +155,7 @@ const productSlice = createSlice({
     });
     builder.addCase(postOrder.fulfilled, (state, action) => {
       state.cartList = state.cartList.filter(product => product._id !== action.payload)
-      state.completeOrder.push(action.payload);
+      // state.completeOrder.push(action.payload);
     });
     builder.addCase(fetchOrder.fulfilled, (state, action) => {
       // Add user to the state array
@@ -166,6 +181,6 @@ const productSlice = createSlice({
 
 })
 
-export const { addToCart, removeFromCart, removeFromProduct, addToOrderList, removeFromOrder } = productSlice.actions;
+export const { addToCart,addToCheckoutList, removeFromCart,removeFromCheckout, removeFromProduct, addToOrderList, removeFromOrder } = productSlice.actions;
 
 export default productSlice.reducer;
